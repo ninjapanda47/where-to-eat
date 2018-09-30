@@ -3,3 +3,12 @@
     max-width: 50%;
     margin: 20px auto;
 }
+
+.restaurant {
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+p {
+    margin: 0;
+}

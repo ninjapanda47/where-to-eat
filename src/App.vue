@@ -3,25 +3,34 @@
     <b-card class="card" title="Where to eat?">
       <Main v-on:submit="getRestaurants" ></Main>
     </b-card>
+    <Modal ref="modal" :restaurant="restaurant"></Modal>
   </div>
 </template>
 
 <script>
 import Main from './components/Main.vue'
+import Modal from './components/Modal.vue'
 import * as api from './utils/api.js'
 
 export default {
   name: 'app',
   components: {
-    Main
+    Main,
+    Modal
   },
   data () {
     return {
+      restaurants: [],
+      restaurant: {}
     }
   },
   methods: {
     getRestaurants(location) {
-      api.getRestaurants(location).then(res => {console.log(res)})
+      api.getRestaurants(location).then(res => {console.log(res),
+      this.$data.restaurant = res,
+      this.$data.restaurants.push(res.id),
+      this.$refs.modal.show()
+      })
     }
   }
 }
