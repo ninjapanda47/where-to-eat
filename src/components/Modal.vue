@@ -9,6 +9,9 @@
             <p class="card-text">{{ this.restaurant.location.address1 }}, {{ this.restaurant.location.address2 }}</p>
             <p class="card-text">{{ this.restaurant.location.city }}, {{this.restaurant.location.state}} {{this.restaurant.location.zip_code}}</p>
             <vue-stars name="rating" :value="this.restaurant.rating" :readonly="true"/>
+            <br>
+            <a :href="this.restaurant.url"
+               class="card-link" target="_blank">Link</a>
         </b-card>
     </b-modal>
   </div>

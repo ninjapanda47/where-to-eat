@@ -25,8 +25,10 @@ export default {
     }
   },
   methods: {
+    //Make sure the restaurant isn't already shown before by checking and pushing it into the array
     getRestaurants(location) {
-      api.getRestaurants(location).then(res => {console.log(res),
+      api.getRestaurants(location).then(res => {
+      this.$data.restaurants.includes(res.id) ? this.getRestaurants(location) :  
       this.$data.restaurant = res,
       this.$data.restaurants.push(res.id),
       this.$refs.modal.show()

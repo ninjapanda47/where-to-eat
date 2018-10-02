@@ -1,15 +1,14 @@
 <template>
   <div class="form">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group id="exampleInputGroup1"
-                    label="Zipcode:"
-                    label-for="zipcode"
+      <b-form-group 
                     description="Enter your zipcode and we'll randomly pick a restaurant nearby for you!">
         <b-form-input id="zipcode"
                       type="number"
                       v-model="form.zipcode"
                       required
-                      placeholder="Enter zipcode">
+                      placeholder="Enter zipcode"
+                      class="input">
         </b-form-input>
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
@@ -37,9 +36,7 @@ export default {
     },
     onReset (evt) {
       evt.preventDefault();
-      /* Reset our form values */
       this.form.zipcode = '';
-      /* Trick to reset/clear native browser form validation state */
       this.show = false;
       this.$nextTick(() => { this.show = true });
     }
