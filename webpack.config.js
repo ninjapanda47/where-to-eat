@@ -49,7 +49,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    port: process.env.PORT || 8080
   },
   performance: {
     hints: false
