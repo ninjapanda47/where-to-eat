@@ -1,0 +1,11 @@
+{
+    "name": "where-to-eat",
+    "description": "A Vue.js project",
+    "version": "1.0.0",
+    "author": "Sandi <sandi.c.gau@gmail.com>",
+    "private": true,
+    "scripts": {
+      "start": "node server.js", 
+      "postinstall": "npm install express"
+    }
+}
