@@ -1,6 +1,6 @@
 # where-to-eat
 
-> A Vue.js project
+> This is a random restaurant generator created using Vue CLI and yelp API.  The backend server is located at https://github.com/ninjapanda47/where-to-eat-backend
 
 ## Build Setup
 
