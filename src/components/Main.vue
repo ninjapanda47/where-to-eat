@@ -26,7 +26,6 @@ export default {
     onSubmit(evt) {
       evt.preventDefault();
       this.$emit("submit", this.form.zipcode);
-      this.form.zipcode = "";
     },
     onReset(evt) {
       evt.preventDefault();
