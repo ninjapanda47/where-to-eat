@@ -1,14 +1,8 @@
 <template>
   <div class="form">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group 
-                    description="Enter your zipcode and we'll randomly pick a restaurant nearby for you!">
-        <b-form-input id="zipcode"
-                      type="number"
-                      v-model="form.zipcode"
-                      required
-                      placeholder="Enter zipcode"
-                      class="input">
+      <b-form-group description="Enter your zipcode and we'll randomly pick a restaurant nearby for you!">
+        <b-form-input id="zipcode" type="number" v-model="form.zipcode" required placeholder="Enter zipcode" class="input">
         </b-form-input>
       </b-form-group>
       <b-button type="submit" variant="primary">Submit</b-button>
@@ -20,26 +14,28 @@
 <script>
 export default {
   name: "Main",
-  data () {
+  data() {
     return {
       form: {
-        zipcode: ''
+        zipcode: ""
       },
       show: true
-    }
+    };
   },
   methods: {
-    onSubmit (evt) {
+    onSubmit(evt) {
       evt.preventDefault();
-      this.$emit('submit', this.form.zipcode)
-      this.form.zipcode = '';
+      this.$emit("submit", this.form.zipcode);
+      this.form.zipcode = "";
     },
-    onReset (evt) {
+    onReset(evt) {
       evt.preventDefault();
-      this.form.zipcode = '';
+      this.form.zipcode = "";
       this.show = false;
-      this.$nextTick(() => { this.show = true });
+      this.$nextTick(() => {
+        this.show = true;
+      });
     }
   }
-}
+};
 </script>
