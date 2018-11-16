@@ -10,9 +10,13 @@
         </div>
       </b-col>
     </b-row>
-    <footer>
-      <span>© 2018 Copyright: sandi gau</span>
-    </footer>
+    <b-row>
+      <b-col>
+        <footer>
+          <span>© 2018 sandigau.com</span>
+        </footer>
+      </b-col>
+    </b-row>
   </b-container>
 </template>
 
