@@ -3,10 +3,16 @@
     <b-row align-v="center">
       <b-col>
         <div id="app">
-          <b-card class="card" title="Where to eat?">
+          <b-card
+            class="card"
+            title="Where to eat?"
+          >
             <Main v-on:submit="getRestaurants"></Main>
           </b-card>
-          <Modal ref="modal" :restaurant="restaurant"></Modal>
+          <Modal
+            ref="modal"
+            :restaurant="restaurant"
+          ></Modal>
         </div>
       </b-col>
     </b-row>
@@ -34,19 +40,34 @@ export default {
   data() {
     return {
       restaurants: [],
-      restaurant: {}
+      restaurant: {},
+      location: "",
+      num: 50
     };
   },
   methods: {
     //Make sure the restaurant isn't already shown before by checking and pushing it into the array
     getRestaurants(location) {
-      api.getRestaurants(location).then(res => {
-        this.$data.restaurants.includes(res.id)
-          ? this.getRestaurants(location)
-          : (this.$data.restaurant = res),
-          this.$data.restaurants.push(res.id),
+      const getRandom = max => {
+        return Math.floor(Math.random() * Math.floor(max));
+      };
+      let x = getRandom(this.$data.num);
+      if (this.$data.location === location) {
+        this.$data.restaurant = this.$data.restaurants[x];
+        this.$data.restaurants.splice(x, 1);
+        this.$data.num--;
+        this.$refs.modal.show();
+      } else {
+        this.$data.num = 50;
+        api.getRestaurants(location).then(res => {
+          this.$data.location = location;
+          this.$data.restaurants = res;
+          this.$data.restaurant = this.$data.restaurants[x];
+          this.$data.restaurants.splice(x, 1);
+          this.$data.num--;
           this.$refs.modal.show();
-      });
+        });
+      }
     }
   }
 };
