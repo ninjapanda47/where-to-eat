@@ -4,7 +4,9 @@
 }
 
 #background {
-    background-color: #04C9FD;
+    background-image: url("foodbg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%, 100%;
 }
 
 .card {
