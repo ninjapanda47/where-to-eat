@@ -4,6 +4,8 @@
 
 > The app is designed to randomly generate a restaurant within 7000 meters of the provided zip code that is within 1-2$ price range on yelp.
 
+> https://where-to-eat-frontend.herokuapp.com/
+
 ## Build Setup
 
 ``` bash
